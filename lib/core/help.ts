@@ -1,4 +1,4 @@
-const program = require('commander')
+import program from "commander";
 
 const helpOption=()=>{
     program.option('-p --pages <pages>', '创建新的pages')
@@ -9,4 +9,4 @@ const helpOption=()=>{
         console.log("Others:");
     })
 }
-module.exports=helpOption
+export default helpOption
