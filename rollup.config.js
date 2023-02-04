@@ -1,5 +1,5 @@
 // 导入依赖
-const { terser } = require("rollup-plugin-terser");
+const terser = require("@rollup/plugin-terser");
 const commonjs = require("@rollup/plugin-commonjs");
 const typescript = require("rollup-plugin-typescript2");
 const json = require("@rollup/plugin-json");
@@ -27,7 +27,7 @@ module.exports = {
     "path",
     "fs",
     "util",
-    "shell"
+    "shelljs",
   ],
 
   // 使用的插件
