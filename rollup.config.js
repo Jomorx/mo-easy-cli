@@ -1,13 +1,18 @@
 // 导入依赖
-const terser = require("@rollup/plugin-terser");
-const commonjs = require("@rollup/plugin-commonjs");
-const typescript = require("rollup-plugin-typescript2");
-const json = require("@rollup/plugin-json");
+// const terser = require("@rollup/plugin-terser");
+import terser from "@rollup/plugin-terser";
+// const commonjs = require("@rollup/plugin-commonjs");
+import commonjs from "@rollup/plugin-commonjs";
+// const typescript = require("rollup-plugin-typescript2");
+import typescript from "rollup-plugin-typescript2";
+// const json = require("@rollup/plugin-json");
+import json from "@rollup/plugin-json";
+
 // tsconfig.json合并选项
 // 一般来说默认使用项目的tsconfig.json，如果有个别需要修改的如下，可以在此修改
 const override = { compilerOptions: { module: "ESNext" } };
 
-module.exports = {
+export default {
   // 项目入口
   input: "index.ts",
 
@@ -28,6 +33,7 @@ module.exports = {
     "fs",
     "util",
     "shelljs",
+    "inquirer",
   ],
 
   // 使用的插件
