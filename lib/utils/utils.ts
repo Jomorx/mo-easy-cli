@@ -1,7 +1,8 @@
 import ejs from "ejs";
 import path from "path";
 import fs from "fs";
-const renderFilePromise = require("util").promisify(ejs.renderFile);
+import { promisify } from "util";
+const renderFilePromise = promisify(ejs.renderFile);
 const compile = async (templateName, data) => {
   const templatePosition = `../templates/${templateName}`;
   const templatePath = path.resolve(__dirname, templatePosition);

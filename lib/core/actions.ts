@@ -1,15 +1,9 @@
 import { promisify } from "util";
-import Download from "download-git-repo";
-import open from "open";
 import path from "path";
-import templateRepo from "../config/repo-config";
-import { commandSpawn } from "../utils/terminal";
+import { repoConfig } from "../config/repo-config";
+import { download } from "../utils";
 import { compile, writeToFile, mkdirSync } from "../utils/utils";
-import { exec } from "shelljs";
-import inquirer from "inquirer";
-import { spawn } from "child_process";
-import { fileURLToPath } from "node:url";
-import { execFile } from "child_process";
+import { spawn } from "node:child_process";
 /**
  * 创建项目
  * @param project 项目名字
@@ -43,29 +37,6 @@ const addPageAction = async (name, dest) => {
   const routerTargetPath = path.resolve(dest, `router.ts`);
   writeToFile(routerTargetPath, routerResult);
 };
-const initAction = async (name, dest) => {
-  // console.log(4564);
-  const npm = process.platform === "win32" ? "npm.cmd" : "npm";
-  spawn(npm, ["init", "vite"], { cwd: `./`, stdio: "inherit" });
-  // commandSpawn("npm", ["init", "vite"], { cwd: "./" });
-  // const { sel } = await inquirer.prompt([
-  //   {
-  //     type: "list",
-  //     name: "sel",
-  //     message: "请选择模板",
-  //     choices: Object.keys(templateRepo),
-  //   },
-  // ]);
-  // const { status } = spawn.sync("npm", "create vite", {
-  //   stdio: "inherit",
-  // });
-  // process.exit(status ?? 0)
-  // const dir = path.resolve(fileURLToPath(import.meta.url), "../..");
-  // download("https://github.com/vitejs/vite/tree/main/packages/create-vite/template-lit-ts","vite",)
-  // gitdownFunc(["https://github.com/vitejs/vite/tree/main/packages/create-vite/template-lit-ts"])
-  // console.log(dir);
 
-  // console.log(status);
-};
-
-export { createProject, addCpnAction, addPageAction, initAction };
+export { createProject, addCpnAction, addPageAction};
+export * from "../scripts";

@@ -1,6 +1,6 @@
 {
   "name": "mo-easy-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/index.js",
   "bin": {
@@ -8,13 +8,17 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c --bundleConfigAsCjs && npm link"
+    "build": "rollup -c && npm link"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^6.1.0",
+    "chalk": "4",
+    "commander": "^10.0.0",
     "download-git-repo": "^3.0.2",
     "ejs": "^3.1.8",
     "inquirer": "^8.0.0",
@@ -24,6 +28,7 @@
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-json": "^6.0.0",
     "@rollup/plugin-terser": "^0.4.0",
+    "@types/inquirer": "^9.0.3",
     "@types/node": "^18.11.18",
     "rollup": "^3.13.0",
     "rollup-plugin-typescript2": "^0.34.1",

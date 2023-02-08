@@ -1,11 +1,7 @@
 // 导入依赖
-// const terser = require("@rollup/plugin-terser");
 import terser from "@rollup/plugin-terser";
-// const commonjs = require("@rollup/plugin-commonjs");
 import commonjs from "@rollup/plugin-commonjs";
-// const typescript = require("rollup-plugin-typescript2");
 import typescript from "rollup-plugin-typescript2";
-// const json = require("@rollup/plugin-json");
 import json from "@rollup/plugin-json";
 
 // tsconfig.json合并选项
@@ -21,27 +17,13 @@ export default {
     file: "dist/bundle.js",
     format: "cjs",
     sourcemap: false,
-    exports: "default",
   },
-  external: [
-    "commander",
-    "download-git-repo",
-    "ejs",
-    "open",
-    "child_process",
-    "path",
-    "fs",
-    "util",
-    "shelljs",
-    "inquirer",
-  ],
-
   // 使用的插件
   // 注意，这里的插件使用是有顺序的，先把ts编译为js，然后查找依赖，最后压缩
   plugins: [
     typescript({ tsconfig: "./tsconfig.json", tsconfigOverride: override }),
     commonjs(),
-    terser(),
+    // terser(),
     json(),
   ],
 };
